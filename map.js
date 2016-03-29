@@ -1,7 +1,6 @@
 'use strict';
 var turf = require('turf');
 
-// Identify Point geometries with a boundary tag.
 module.exports = function(tileLayers, tile, writeData, done) {
 	var layer = tileLayers.osm.osm;
 
@@ -9,8 +8,15 @@ module.exports = function(tileLayers, tile, writeData, done) {
 		if (val.properties.building && val.geometry.type === 'Polygon') {
 			var coordinates_length = val.geometry.coordinates.length;
 			if (val.geometry.coordinates[0] === val.geometry.coordinates[coordinates_length - 1]) {
-				val.properties.calc_area = turf.area(val);
-				val.properties.calc_perimeter = turf.lineDistance(val);
+			    var props = {
+				"_osm_way_id": val.properties._osm_way_id,
+			
+			    };
+			    
+		            props.area = turf.area(val);
+			    props.perimeter = turf.lineDistance(val,'kilometers');
+			    props.para = (((props.perimeter)/0.001)/(props.area));
+			    val.properties = props
 				return true;
 			}
 		}
