@@ -12,10 +12,15 @@ module.exports = function(tileLayers, tile, writeData, done) {
 				"_osm_way_id": val.properties._osm_way_id,
 			
 			    };
-			    
+			    //area in m^2
 		            props.area = turf.area(val);
-			    props.perimeter = turf.lineDistance(val,'kilometers');
-			    props.para = (((props.perimeter)/0.001)/(props.area));
+                            //perimeter in meter
+			    props.perimeter = (turf.lineDistance(val,'kilometers')/0.001);
+			    //perimeter area ratio https://spatialanalysisonline.com
+			    props.para = ((props.perimeter)/(props.area));
+			    //p2a https://spatialanalysisonline.com
+			    props.p2a = ((props.perimeter)*(props.perimeter))/(props.area);
+			    props.sqrt_p2a = Math.sqrt(props.p2a);
 			    val.properties = props
 				return true;
 			}
