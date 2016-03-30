@@ -13,8 +13,10 @@ module.exports = function(tileLayers, tile, writeData, done) {
 	var buildings = layer.features.filter(function(val) {
 		if (val.properties.building && val.geometry.type === 'Polygon') {
 			var flag = 0;
-			for (var i = 0; i < val.geometry.coordinates.length; i++) {
-				if (turf.inside(turf.point(val.geometry.coordinates[i]), buffer)) {
+			console.log(val.geometry.coordinates[0].length);
+			for (var i = 0; i < val.geometry.coordinates[0].length; i++) {
+				if (turf.inside(turf.point(val.geometry.coordinates[0][i]), buffer)) {
+					console.log(turf.inside(turf.point(val.geometry.coordinates[0][i]), buffer));
 					flag = 1;
 					break;
 				}
