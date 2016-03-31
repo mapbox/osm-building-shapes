@@ -1,0 +1,33 @@
+{
+  "name": "validate-features",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "path": "^0.12.7",
+    "tile-reduce": "^3.1.1",
+    "tilebelt": "^1.0.1",
+    "turf": "^2.0.2",
+    "turf-area": "^1.1.1",
+    "turf-line-distance": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapbox/validate-features.git"
+  },
+  "keywords": [
+    "tile-reduce",
+    "turf",
+    "buildings"
+  ],
+  "author": "mapbox.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/validate-features/issues"
+  },
+  "homepage": "https://github.com/mapbox/validate-features"
+}
