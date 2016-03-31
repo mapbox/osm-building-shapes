@@ -8,7 +8,7 @@ module.exports = function(tileLayers, tile, writeData, done) {
 	var bboxLineString = turf.bboxPolygon(bbox);
 	bboxLineString.geometry.type = 'LineString';
 	bboxLineString.geometry.coordinates = bboxLineString.geometry.coordinates[0];
-	var buffer = turf.buffer(bboxLineString, 10, 'meters').features[0];
+	var buffer = turf.buffer(bboxLineString, 5, 'meters').features[0];
 
 	var buildings = layer.features.filter(function(val) {
 		if (val.properties.building && val.geometry.type === 'Polygon') {
