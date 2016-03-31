@@ -2,18 +2,28 @@
 var tileReduce = require('tile-reduce');
 var path = require('path');
 var turf = require('turf');
+var argv = require('minimist')(process.argv.slice(2));
 
 var out = turf.featurecollection([]);
-tileReduce({
-  bbox:[77.6260, 12.9610, 77.6624, 12.9872],
-  zoom: 12,
-  map: path.join(__dirname, 'map.js'),
-  sources: [{
-    name: 'osm',
-    mbtiles: '/Users/oindrila/mapbox/latest.planet.mbtiles',
-    raw: false
-  }]
-})
-.on('reduce', function() {})
-.on('end', function() {});
+var file = argv.file;
+var bbox = JSON.parse(argv.bbox);
+var zoom = argv.zoom;
+
+
+
+  tileReduce({
+    bbox: bbox,
+    zoom: zoom,
+    map: path.join(__dirname, '/map.js'),
+    sources: [{
+      name: 'osm',
+      mbtiles: path.join(__dirname, file),
+      raw: false
+    }]
+  })
+  .on('reduce', function() {})
+  .on('end', function() {
+
+  });
+
 
