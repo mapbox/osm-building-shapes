@@ -10,9 +10,15 @@ Shape is defined as `(4 * PI * area) / (perimeter^2)` as [here](http://www.empix
 
 The output is line delimited FeatureCollection with properties:
 
-```
-"properties": {"building": "yes", "perimeter": 0, "shape": null, "_osm_way_id": 143251631, "area": 0.042}}
+```json
+{
+    "building": "yes",
+    "perimeter": 1.021,
+    "shape": 50.63,
+    "_osm_way_id": 143251631,
+    "area": 0.042
+}
 ```
 
-_Here's map of building sizes in Monaco_
 <img width="938" alt="screen shot 2016-04-05 at 20 49 40" src="https://cloud.githubusercontent.com/assets/371666/14287337/ff1744a2-fb6f-11e5-8dd9-fd792cb95d64.png">
+_Here's map of building sizes in Monaco_
