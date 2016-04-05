@@ -6,8 +6,8 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var out = turf.featurecollection([]);
 var file = argv.mbtiles;
-var bbox = JSON.parse(argv.bbox) || null;
-var zoom = argv.zoom || 12;
+var bbox = argv.bbox ? JSON.parse(argv.bbox) : null;
+var zoom = argv.zoom ? parseInt(argv.zoom) : 12;
 
 tileReduce({
     bbox: bbox,
