@@ -25,11 +25,15 @@ module.exports = function(tileLayers, tile, writeData, done) {
                 //area in m^2
                 props.area = parseFloat((turf.area(val)).toFixed(3));
 
-                //perimeter in meter
-                props.perimeter = parseFloat(((turf.lineDistance(val,'kilometers') * 1000 )).toFixed(3));
+                // perimeter in meter
+                var line = val;
+                line.geometry.type = 'LineString';
+                line.geometry.coordinates = line.geometry.coordinates[0];
+
+                props.perimeter = parseFloat(((turf.lineDistance(val,'kilometers') * 1000)).toFixed(3));
+                process.stderr.write(String(props.perimeter) + '\n');
 
                 // shape factor = (4 * PI * area) / (perimeter^2) http://www.empix.com/NE%20HELP/functions/glossary/morphometric_param.htm
-
                 props.shape = parseFloat(((((Math.PI * 4 * props.area) / ((props.perimeter)*(props.perimeter))) * 100)).toFixed(3));
                 val.properties = props;
                 return true;
