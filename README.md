@@ -21,4 +21,4 @@ The output is line delimited FeatureCollection with properties:
 ```
 
 <img width="938" alt="screen shot 2016-04-05 at 20 49 40" src="https://cloud.githubusercontent.com/assets/371666/14287337/ff1744a2-fb6f-11e5-8dd9-fd792cb95d64.png">
-_Here's map of building sizes in Monaco_
+_Here's a map of building sizes in Monaco_
