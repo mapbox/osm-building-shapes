@@ -46,9 +46,9 @@ module.exports = function(tileLayers, tile, writeData, done) {
     });
 
     if (buildings.length > 0) {
-        var fc = turf.featurecollection(buildings);
-        writeData(JSON.stringify(fc) + '\n');
+        // var fc = turf.featurecollection(buildings);
+        // writeData(JSON.stringify(fc) + '\n');
+        done(null, buildings);
     }
 
-    done(null, null);
 };

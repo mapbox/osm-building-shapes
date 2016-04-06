@@ -19,5 +19,9 @@ tileReduce({
         raw: false
     }]
 })
-.on('reduce', function() {})
-.on('end', function() {});
+.on('reduce', function(buildings) {
+    Array.prototype.push.apply(out.features, buildings);
+})
+.on('end', function() {
+    process.stdout.write(JSON.stringify(out));
+});
